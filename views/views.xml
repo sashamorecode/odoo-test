@@ -17,24 +17,24 @@
         </field>
     </record>
 
-    <record id="view_tree_simple_survey" model="ir.ui.view">
-        <field name="name">simple.survey.tree</field>
+    <record id="view_list_simple_survey" model="ir.ui.view">
+        <field name="name">simple.survey.list</field>
         <field name="model">simple.survey</field>
         <field name="arch" type="xml">
-            <tree string="Surveys">
+            <list string="Surveys">
                 <field name="name"/>
                 <field name="estimated_costs"/>
-            </tree>
+            </list>
         </field>
     </record>
 
-    <record id="view_tree_simple_question" model="ir.ui.view">
-        <field name="name">simple.question.tree</field>
+    <record id="view_list_simple_question" model="ir.ui.view">
+        <field name="name">simple.question.list</field>
         <field name="model">simple.question</field>
         <field name="arch" type="xml">
-            <tree string="Questions">
+            <list string="Questions">
                 <field name="name"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -59,13 +59,13 @@
     <record id="action_simple_survey" model="ir.actions.act_window">
         <field name="name">Surveys</field>
         <field name="res_model">simple.survey</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <record id="action_simple_question" model="ir.actions.act_window">
         <field name="name">Questions</field>
         <field name="res_model">simple.question</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>
 
