@@ -1,106 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- Question Views -->
-    <record id="view_question_list" model="ir.ui.view">
-        <field name="name">odoo_test.question.list</field>
-        <field name="model">odoo_test.question</field>
-        <field name="arch" type="xml">
-            <list string="Questions">
-                <field name="name"/>
-                <field name="questionText"/>
-            </list>
-        </field>
-    </record>
-
-    <record id="view_question_form" model="ir.ui.view">
-        <field name="name">odoo_test.question.form</field>
-        <field name="model">odoo_test.question</field>
-        <field name="arch" type="xml">
-            <form string="Question">
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="questionText"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
-    <!-- Survey Views -->
-    <record id="view_survey_list" model="ir.ui.view">
-        <field name="name">odoo_test.survey.list</field>
-        <field name="model">odoo_test.survey</field>
-        <field name="arch" type="xml">
-            <list string="Surveys">
-                <field name="name"/>
-                <field name="description"/>
-                <field name="estimatedCost"/>
-                <field name="state"/>
-            </list>
-        </field>
-    </record>
-
-    <record id="view_survey_form" model="ir.ui.view">
-        <field name="name">odoo_test.survey.form</field>
-        <field name="model">odoo_test.survey</field>
+    <record id="view_form_simple_survey" model="ir.ui.view">
+        <field name="name">simple.survey.form</field>
+        <field name="model">simple.survey</field>
         <field name="arch" type="xml">
             <form string="Survey">
                 <sheet>
                     <group>
                         <field name="name"/>
                         <field name="description"/>
-                        <field name="estimatedCost"/>
-                        <field name="state"/>
+                        <field name="estimated_costs"/>
+                        <field name="phone_numbers_file" filename="phone_numbers_file_name"/>
+                        <field name="question_ids" widget="many2many_tags"/>
                     </group>
-                    <notebook>
-                        <page string="Questions">
-                            <field name="questions" widget="many2many_tags"/>
-                        </page>
-                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <!-- Search View -->
-    <record id="view_survey_search" model="ir.ui.view">
-        <field name="name">odoo_test.survey.search</field>
-        <field name="model">odoo_test.survey</field>
+    <record id="view_tree_simple_survey" model="ir.ui.view">
+        <field name="name">simple.survey.tree</field>
+        <field name="model">simple.survey</field>
         <field name="arch" type="xml">
-            <search string="Surveys">
+            <tree string="Surveys">
                 <field name="name"/>
-                <field name="state"/>
-                <filter string="Draft" name="draft" domain="[('state','=','draft')]"/>
-                <filter string="Approved" name="approved" domain="[('state','=','approved')]"/>
-            </search>
+                <field name="estimated_costs"/>
+            </tree>
         </field>
     </record>
 
-    <!-- Actions -->
-    <record id="action_survey" model="ir.actions.act_window">
+    <record id="view_tree_simple_question" model="ir.ui.view">
+        <field name="name">simple.question.tree</field>
+        <field name="model">simple.question</field>
+        <field name="arch" type="xml">
+            <tree string="Questions">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_simple_question" model="ir.ui.view">
+        <field name="name">simple.question.form</field>
+        <field name="model">simple.question</field>
+        <field name="arch" type="xml">
+            <form string="Question">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_simple_survey_root" name="Simple Survey"/>
+    <menuitem id="menu_simple_survey" name="Surveys" parent="menu_simple_survey_root" action="action_simple_survey"/>
+    <menuitem id="menu_simple_question" name="Questions" parent="menu_simple_survey_root" action="action_simple_question"/>
+
+    <record id="action_simple_survey" model="ir.actions.act_window">
         <field name="name">Surveys</field>
-        <field name="res_model">odoo_test.survey</field>
-        <field name="view_mode">list,form</field>
+        <field name="res_model">simple.survey</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
-    <record id="action_question" model="ir.actions.act_window">
+    <record id="action_simple_question" model="ir.actions.act_window">
         <field name="name">Questions</field>
-        <field name="res_model">odoo_test.question</field>
-        <field name="view_mode">list,form</field>
+        <field name="res_model">simple.question</field>
+        <field name="view_mode">tree,form</field>
     </record>
-
-    <!-- Menus -->
-    <menuitem id="menu_odoo_test_root" name="Odoo Test"/>
-
-    <menuitem id="menu_survey_root"
-              name="Surveys"
-              parent="menu_odoo_test_root"
-              action="action_survey"/>
-
-    <menuitem id="menu_question_root"
-              name="Questions"
-              parent="menu_odoo_test_root"
-              action="action_question"/>
 </odoo>
 
