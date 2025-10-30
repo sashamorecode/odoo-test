@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <!-- Question Views -->
-    <record id="view_question_tree" model="ir.ui.view">
-        <field name="name">odoo_test.question.tree</field>
+    <record id="view_question_list" model="ir.ui.view">
+        <field name="name">odoo_test.question.list</field>
         <field name="model">odoo_test.question</field>
         <field name="arch" type="xml">
-            <tree string="Questions">
+            <list string="Questions">
                 <field name="name"/>
                 <field name="questionText"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -28,16 +28,16 @@
     </record>
 
     <!-- Survey Views -->
-    <record id="view_survey_tree" model="ir.ui.view">
-        <field name="name">odoo_test.survey.tree</field>
+    <record id="view_survey_list" model="ir.ui.view">
+        <field name="name">odoo_test.survey.list</field>
         <field name="model">odoo_test.survey</field>
         <field name="arch" type="xml">
-            <tree string="Surveys">
+            <list string="Surveys">
                 <field name="name"/>
                 <field name="description"/>
                 <field name="estimatedCost"/>
                 <field name="state"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -81,13 +81,13 @@
     <record id="action_survey" model="ir.actions.act_window">
         <field name="name">Surveys</field>
         <field name="res_model">odoo_test.survey</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <record id="action_question" model="ir.actions.act_window">
         <field name="name">Questions</field>
         <field name="res_model">odoo_test.question</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
     <!-- Menus -->
