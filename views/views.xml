@@ -13,12 +13,12 @@
                     <button name="action_approve"
                             string="Approve"
                             type="object"
-                            states="waiting_approval"
+                            states="waiting"
                             class="btn-success"/>
                     <button name="action_reject"
                             string="Reject"
                             type="object"
-                            states="waiting_approval"
+                            states="waiting"
                             class="btn-danger"/>
                 </header>
                 <sheet>
