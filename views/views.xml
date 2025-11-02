@@ -30,7 +30,7 @@
                         <field name="description"/>
                         <field name="estimated_costs"/>
                         <field name="phone_numbers_file" filename="phone_numbers_file_name"/>
-                        <field name="question_ids" widget="many2many_tags"/>
+                        <field name="question_ids" widget="many2many"/>
 
                     </group>
                 </sheet>
@@ -44,8 +44,8 @@
         <field name="arch" type="xml">
             <list string="Surveys">
                 <field name="name"/>
-                <field name="estimated_costs"/>
                 <field name="approval_state"/>
+                <field name="estimated_costs"/>
             </list>
         </field>
     </record>
