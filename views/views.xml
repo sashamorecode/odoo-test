@@ -26,7 +26,6 @@
                             string="Initiate Survey"
                             invisible="approval_state != 'approved'"
                         class="btn btn-success"/>
-                    <field string="Active" class="btn btn-success"/>
                 </header>
                 <sheet>
                     <group>
