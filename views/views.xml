@@ -153,9 +153,9 @@
         </field>
     </record>
 
-    <record id="view_list_simple_response" model="ir.ui.view">
-        <field name="name">simple.response.list</field>
-        <field name="model">simple.response</field>
+    <record id="view_list_simple_question_response" model="ir.ui.view">
+        <field name="name">simple.question_response.list</field>
+        <field name="model">simple.question_response</field>
         <field name="arch" type="xml">
             <list string="Response">
                 <field name="phone_number"/>
