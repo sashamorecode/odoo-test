@@ -45,7 +45,7 @@
                         <field name="question_ids" widget="many2many"
                             readonly="approval_state != 'draft'"/>
                     </group>
-                    <field name="responses" invisible="approval_state != 'active'" widget="one2many"/>
+                    <field name="responses" invisible="approval_state != 'active' and approval_state != 'closed'" widget="one2many"/>
                 </sheet>
             </form>
         </field>

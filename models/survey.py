@@ -22,7 +22,7 @@ class SimpleSurvey(models.Model):
         ('approved', 'Approved'),
         ('rejected', 'Rejected'),
         ('active', 'Active'),
-        ('done', 'Done'),
+        ('closed', 'Closed'),
     ], default='draft')
     responses = fields.One2many(
         'simple.response', 'survey', string="Responses")
