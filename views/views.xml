@@ -73,7 +73,7 @@
                 <field name="estimated_costs"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_global_click" t-attf-class="oe_kanban_color_{{record.approval_state.raw_value or '0'}">
+                        <div class="oe_kanban_global_click">
                             <div class="o_kanban_record_body">
                                 <div class="o_kanban_record_title">
                                     <field name="name"/>
@@ -87,11 +87,6 @@
                                         <span>Estimated Costs: </span>
                                         <field name="estimated_costs"/>
                                     </div>
-                                </div>
-                            </div>
-                            <div t-if="record.approval_state.raw_value" class="o_kanban_footer">
-                                <div class="oe_kanban_bottom_left">
-                                    <field name="approval_state" widget="badge"/>
                                 </div>
                             </div>
                         </div>
@@ -113,6 +108,7 @@
         <field name="name">Surveys</field>
         <field name="res_model">simple.survey</field>
         <field name="view_mode">list,form,kanban</field>
+        <field name="context">{'group_by_no_leaf': 1, 'group_expand': 1}</field>
     </record>
 
 
