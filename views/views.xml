@@ -20,9 +20,11 @@
                             type="object"
                             invisible="approval_state != 'waiting'"
                             class="btn-danger"/>
+                    <button name="approved"
+                            string="Approved"
+                            class="btn-success"/>
                 </header>
-                <sheet>
-                    <group>
+                <sheet> <group>
                         <field name="name"/>
                         <field name="description"/>
                         <field name="estimated_costs"/>
