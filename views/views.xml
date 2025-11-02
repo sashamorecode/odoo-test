@@ -45,6 +45,7 @@
             <list string="Surveys">
                 <field name="name"/>
                 <field name="estimated_costs"/>
+                <field name="approval_state"/>
             </list>
         </field>
     </record>
