@@ -92,14 +92,6 @@
                         </div>
                     </t>
                 </templates>
-            <groups create="false" delete="false">
-                <group string="Draft" name="draft"/>
-                <group string="Waiting Approval" name="waiting"/>
-                <group string="Approved" name="approved"/>
-                <group string="Rejected" name="rejected"/>
-                <group string="Active" name="active"/>
-                <group string="Closed" name="closed"/>
-            </groups>
             </kanban>
         </field>
     </record>
@@ -108,7 +100,7 @@
         <field name="name">Surveys</field>
         <field name="res_model">simple.survey</field>
         <field name="view_mode">list,form,kanban</field>
-        <field name="context">{'group_by_no_leaf': 1, 'group_expand': 1}</field>
+            <field name="context">{'group_by': 'approval_state', 'group_expand': 1}</field>
     </record>
 
 

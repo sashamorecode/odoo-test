@@ -27,6 +27,10 @@ class SimpleSurvey(models.Model):
     responses = fields.One2many(
         'simple.response', 'survey', string="Responses")
 
+    @api.model
+    def _expand_approval_state(self, states, domain, order):
+        return [key for key, value in self._fields['approval_state'].selection]
+
     def action_submit_for_approval(self):
         self.approval_state = 'waiting'
 
