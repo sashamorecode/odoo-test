@@ -110,10 +110,8 @@
             <form string="Response">
                 <sheet>
                     <group>
-                        <group>
-                            <field name="phone_number"/>
-                            <field name="survey" widget="many2one"/>
-                        </group>
+                        <field name="phone_number"/>
+                        <field name="survey" widget="many2one"/>
                         <field name="responses" widget="one2many"/>
                     </group>
                 </sheet>
