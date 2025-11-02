@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class SimpleSurvey(models.Model):
@@ -22,13 +22,13 @@ class SimpleSurvey(models.Model):
         ('approved', 'Approved'),
         ('rejected', 'Rejected'),
     ])
-    approval_state.default = 'draft'
 
-    def action_submit_for_approval(self, *args):
-        self.approval_state = 'waiting'
+    @api.model
+    def action_submit(self, *args):
+        for survey in self:
+            survey.approval_state = 'waiting'
 
     def action_approve(self, *args):
-        # if self.env.user.has_group('manager'):
         self.approval_state = 'approved'
 
     def action_reject(self, *args):
