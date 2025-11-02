@@ -1,4 +1,5 @@
 <odoo>
+    <!-- Survey views -->
     <record id="view_form_simple_survey" model="ir.ui.view">
         <field name="name">simple.survey.form</field>
         <field name="model">simple.survey</field>
@@ -62,7 +63,14 @@
             </list>
         </field>
     </record>
+     <record id="action_simple_survey" model="ir.actions.act_window">
+        <field name="name">Surveys</field>
+        <field name="res_model">simple.survey</field>
+        <field name="view_mode">list,form</field>
+    </record>
 
+
+    <!-- Question views -->
     <record id="view_list_simple_question" model="ir.ui.view">
         <field name="name">simple.question.list</field>
         <field name="model">simple.question</field>
@@ -88,7 +96,13 @@
             </form>
         </field>
     </record>
+   <record id="action_simple_question" model="ir.actions.act_window">
+        <field name="name">Questions</field>
+        <field name="res_model">simple.question</field>
+        <field name="view_mode">list,form</field>
+    </record>
 
+    <!-- Response views -->
    <record id="view_form_simple_response" model="ir.ui.view">
         <field name="name">simple.response.form</field>
         <field name="model">simple.response</field>
@@ -96,8 +110,10 @@
             <form string="Response">
                 <sheet>
                     <group>
-                        <field name="phone_number"/>
-                        <field name="survey" widget="many2one"/>
+                        <group>
+                            <field name="phone_number"/>
+                            <field name="survey" widget="many2one"/>
+                        </group>
                         <field name="responses" widget="one2many"/>
                     </group>
                 </sheet>
@@ -121,18 +137,44 @@
         <field name="res_model">simple.response</field>
         <field name="view_mode">list,form</field>
     </record>
+    <!-- question response views -->
+   <record id="view_form_simple_response" model="ir.ui.view">
+        <field name="name">simple.question_response.form</field>
+        <field name="model">simple.question_response</field>
+        <field name="arch" type="xml">
+            <form string="Individual Response">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="question" widget="many2one"/>
+                            <field name="response_text"/>
+                        </group>
+                        <field name="responses" widget="one2many"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
-    <record id="action_simple_survey" model="ir.actions.act_window">
-        <field name="name">Surveys</field>
-        <field name="res_model">simple.survey</field>
+    <record id="view_list_simple_response" model="ir.ui.view">
+        <field name="name">simple.response.list</field>
+        <field name="model">simple.response</field>
+        <field name="arch" type="xml">
+            <list string="Response">
+                <field name="phone_number"/>
+                <field name="question" widget="many2one"/>
+                <field name="response_text"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_simple_question_response" model="ir.actions.act_window">
+        <field name="name">Question Response</field>
+        <field name="res_model">simple.question_response</field>
         <field name="view_mode">list,form</field>
     </record>
 
-    <record id="action_simple_question" model="ir.actions.act_window">
-        <field name="name">Questions</field>
-        <field name="res_model">simple.question</field>
-        <field name="view_mode">list,form</field>
-    </record>
+
 
     <menuitem id="menu_simple_survey_root" name="Simple Survey"/>
     <menuitem id="menu_simple_survey" name="Surveys" parent="menu_simple_survey_root" action="action_simple_survey"/>

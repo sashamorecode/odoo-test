@@ -5,9 +5,8 @@ class QuestionResponse(models.Model):
     _name = 'simple.question_response'
     _description = 'Individual Answer'
     response_text = fields.Char(string="Response Text", required=True)
+    phone_number = fields.Char(string="Phone Number")
     question = fields.Many2one('simple.question')
-    display_text = fields.Char(
-        String="Response", compute="_compute_display_text")
     survey = fields.Many2one('simple.response')
     # @api.depends('question.name', 'response_text')
     # def _compute_display_text(self):
