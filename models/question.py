@@ -6,3 +6,4 @@ class SimpleQuestion(models.Model):
     _description = 'Survey Question'
 
     name = fields.Char(string='Question', required=True)
+    question_text = fields.Char(string='Question Text')
