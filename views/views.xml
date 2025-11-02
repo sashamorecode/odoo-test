@@ -5,7 +5,7 @@
         <field name="arch" type="xml">
             <form string="Survey">
                 <header>
-                    <button name="action_submit"
+                    <button name="action_submit_for_approval"
                             string="Submit for Approval"
                             type="object"
                             invisible="approval_state != 'draft' and approval_state != False"
