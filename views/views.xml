@@ -42,7 +42,7 @@
                             <field name="estimated_costs"
                                 readonly="approval_state != 'draft'"/>
                         </group>
-                        <field name="question_ids" widget="one2many"
+                        <field name="question_ids" widget="many2many"
                             readonly="approval_state != 'draft'"/>
 
                     </group>
