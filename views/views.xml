@@ -8,17 +8,17 @@
                     <button name="action_submit_for_approval"
                             string="Submit for Approval"
                             type="object"
-                            states="draft"
+                            invisible="state != 'draft'"
                             class="btn-primary"/>
                     <button name="action_approve"
                             string="Approve"
                             type="object"
-                            states="waiting"
+                            invisible="state != 'waiting'"
                             class="btn-success"/>
                     <button name="action_reject"
                             string="Reject"
                             type="object"
-                            states="waiting"
+                            invisible="state != 'waiting'"
                             class="btn-danger"/>
                 </header>
                 <sheet>
