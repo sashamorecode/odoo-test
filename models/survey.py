@@ -24,15 +24,14 @@ class SimpleSurvey(models.Model):
         ('done', 'Done'),
     ], default='draft')
 
-    def action_submit(self, *args):
+    def action_submit(self):
         self.approval_state = 'waiting'
 
-    def action_approve(self, *args):
+    def action_approve(self):
         self.approval_state = 'approved'
 
-    def action_reject(self, *args):
+    def action_reject(self):
         self.approval_state = 'rejected'
 
     def action_initiate_survey(self):
         self.approval_state = 'done'
-        pass
