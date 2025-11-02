@@ -39,8 +39,6 @@
                         <group>
                             <field name="description"
                                 readonly="approval_state != 'draft'"/>
-                            <field name="phone_numbers_file" filename="phone_numbers_file_name"
-                                readonly="approval_state != 'draft'"/>
                             <field name="estimated_costs"
                                 readonly="approval_state != 'draft'"/>
                         </group>
