@@ -111,11 +111,7 @@
                     <group>
                         <field name="phone_number"/>
                         <field name="survey" widget="many2one"/>
-                        <field name="responses" mode="list">
-                            <list string="Responses">
-                                <field name="response_text"/>
-                            </list>
-                        </field>
+                        <field name="responses" widget="one2many"/>
                     </group>
                 </sheet>
             </form>
@@ -129,12 +125,6 @@
             <list string="Response">
                 <field name="phone_number"/>
                 <field name="survey" widget="many2one"/>
-                <field name="responses" mode="list">
-                    <list string="Responses">
-                        <field name="response_text"/>
-                    </list>
-                </field>
-
             </list>
         </field>
     </record>
