@@ -8,7 +8,6 @@
                     <button name="action_submit_for_approval"
                             string="Submit for Approval"
                             type="object"
-                            invisible="approval_state != 'draft'"
                             class="btn-primary"/>
                     <button name="action_approve"
                             string="Approve"
