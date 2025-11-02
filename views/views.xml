@@ -125,6 +125,7 @@
             <list string="Response">
                 <field name="phone_number"/>
                 <field name="survey" widget="many2one"/>
+                <field name="responses" widget="one2many"/>
             </list>
         </field>
     </record>
