@@ -97,6 +97,8 @@
                 <sheet>
                     <group>
                         <field name="phone_number"/>
+                        <field name="survey" widget="many2one"/>
+                        <field name="responses" widget="one2many"/>
                     </group>
                 </sheet>
             </form>
@@ -109,7 +111,7 @@
         <field name="arch" type="xml">
             <list string="Response">
                 <field name="phone_number"/>
-                <!--field name="survey_id" widget="many2one"-->
+                <field name="survey" widget="many2one"/>
             </list>
         </field>
     </record>
