@@ -28,7 +28,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name"/>
+                            <field name="name" readonly="True"/>
                             <field name="phone_numbers_file" filename="phone_numbers_file_name"/>
                         </group>
                         <group>
