@@ -16,7 +16,7 @@ class SimpleSurvey(models.Model):
         column1='survey_id',
         column2='question_id'
     )
-    state = fields.Selection([
+    approval_state = fields.Selection([
         ('draft', 'Draft'),
         ('waiting', 'Waiting for Approval'),
         ('approved', 'Approved'),
