@@ -21,6 +21,7 @@ class SimpleSurvey(models.Model):
         ('waiting', 'Waiting for Approval'),
         ('approved', 'Approved'),
         ('rejected', 'Rejected'),
+        ('done', 'Done'),
     ], default='draft')
 
     @api.model
@@ -33,3 +34,7 @@ class SimpleSurvey(models.Model):
 
     def action_reject(self, *args):
         self.approval_state = 'rejected'
+
+    def action_initiate_survey(self):
+        self.approval_state = 'done'
+        pass
