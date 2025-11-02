@@ -8,7 +8,7 @@
                     <button name="action_submit"
                             string="Submit for Approval"
                             type="object"
-                            invisible="approval_state != draft and approval_state != False"
+                            invisible="approval_state != 'draft' and approval_state != False"
                             class="btn btn-primary"/>
                     <button name="action_approve"
                             string="Approve"
