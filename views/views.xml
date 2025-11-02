@@ -73,7 +73,7 @@
                 <field name="estimated_costs"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_global_click">
+                        <div class="oe_kanban_global_click" t-attf-class="oe_kanban_color_{{record.approval_state.raw_value or '0'}">
                             <div class="o_kanban_record_body">
                                 <div class="o_kanban_record_title">
                                     <field name="name"/>
@@ -97,6 +97,14 @@
                         </div>
                     </t>
                 </templates>
+            <groups>
+                <group string="Draft" name="draft"/>
+                <group string="Waiting Approval" name="waiting"/>
+                <group string="Approved" name="approved"/>
+                <group string="Rejected" name="rejected"/>
+                <group string="Active" name="active"/>
+                <group string="Closed" name="closed"/>
+            </groups>
             </kanban>
         </field>
     </record>
