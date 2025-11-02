@@ -4,80 +4,49 @@
         <field name="name">simple.survey.form</field>
         <field name="model">simple.survey</field>
         <field name="arch" type="xml">
-            <form string="Survey" class="survey-modern-layout">
+            <form string="Survey">
                 <header>
-                    <div class="button-box">
-                        <button name="action_submit_for_approval"
-                                string="Submit for Approval"
-                                type="object"
-                                invisible="approval_state != 'draft' and approval_state != False"
-                                class="btn btn-primary oe_highlight"/>
-                        <button name="action_approve"
-                                string="Approve"
-                                type="object"
-                                invisible="approval_state != 'waiting'"
-                                class="btn btn-success oe_highlight"/>
-                        <button name="action_reject"
-                                string="Reject"
-                                type="object"
-                                invisible="approval_state != 'waiting'"
-                                class="btn btn-danger"/>
-                        <button name="action_initiate_survey"
-                                string="Initiate Survey"
-                                invisible="approval_state != 'approved'"
-                                class="btn btn-success oe_highlight"/>
-                    </div>
+                    <button name="action_submit_for_approval"
+                            string="Submit for Approval"
+                            type="object"
+                            invisible="approval_state != 'draft' and approval_state != False"
+                            class="btn btn-primary"/>
+                    <button name="action_approve"
+                            string="Approve"
+                            type="object"
+                            invisible="approval_state != 'waiting'"
+                            class="btn btn-success"/>
+                    <button name="action_reject"
+                            string="Reject"
+                            type="object"
+                            invisible="approval_state != 'waiting'"
+                            class="btn btn-danger"/>
+                    <button name="action_initiate_survey"
+                            string="Initiate Survey"
+                            invisible="approval_state != 'approved'"
+                            class="btn btn-success"/>
                 </header>
                 <sheet>
-                    <div class="oe_title">
-                        <h1>
-                            <field name="name" readonly="approval_state != 'draft'" class="survey-title"/>
-                        </h1>
-                    </div>
-                    <div class="survey-container">
-                        <div class="survey-left-panel">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Basic Information</div>
-                                <div class="panel-body">
-                                    <field name="description"
-                                            readonly="approval_state != 'draft'"
-                                            class="survey-description"
-                                            placeholder="Enter survey description..."/>
-                                </div>
-                            </div>
+                    <group>
+                        <group>
+                            <field name="name"
+                                readonly="approval_state != 'draft'"/>
+                            <field name="phone_numbers_file" filename="phone_numbers_file_name"
+                                readonly="approval_state != 'draft'"/>
 
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Phone Numbers</div>
-                                <div class="panel-body">
-                                    <field name="phone_numbers_file"
-                                            filename="phone_numbers_file_name"
-                                            readonly="approval_state != 'draft'"
-                                            class="survey-file-field"/>
-                                </div>
-                            </div>
-                        </div>
+                        </group>
+                        <group>
+                            <field name="description"
+                                readonly="approval_state != 'draft'"/>
+                            <field name="phone_numbers_file" filename="phone_numbers_file_name"
+                                readonly="approval_state != 'draft'"/>
+                            <field name="estimated_costs"
+                                readonly="approval_state != 'draft'"/>
+                        </group>
+                        <field name="question_ids" widget="many2many"
+                            readonly="approval_state != 'draft'"/>
 
-                        <div class="survey-right-panel">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Financial Details</div>
-                                <div class="panel-body">
-                                    <field name="estimated_costs"
-                                            readonly="approval_state != 'draft'"
-                                            class="survey-costs"/>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default questions-panel">
-                                <div class="panel-heading">Survey Questions</div>
-                                <div class="panel-body">
-                                    <field name="question_ids"
-                                            widget="many2many"
-                                            readonly="approval_state != 'draft'"
-                                            class="survey-questions"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -87,29 +56,28 @@
         <field name="name">simple.survey.list</field>
         <field name="model">simple.survey</field>
         <field name="arch" type="xml">
-            <list string="Surveys" class="survey-list-modern">
-                <field name="name" string="Survey Name" class="survey-name-column"/>
-                <field name="approval_state" string="Status" widget="badge"
-                       options="{'background_field': 'approval_state', 'color_field': 'color'}"/>
-                <field name="estimated_costs" string="Estimated Costs" widget="monetary"/>
+            <list string="Surveys">
+                <field name="name"/>
+                <field name="approval_state"/>
+                <field name="estimated_costs"/>
             </list>
         </field>
     </record>
-
-    <record id="action_simple_survey" model="ir.actions.act_window">
+     <record id="action_simple_survey" model="ir.actions.act_window">
         <field name="name">Surveys</field>
         <field name="res_model">simple.survey</field>
         <field name="view_mode">list,form</field>
     </record>
+
 
     <!-- Question views -->
     <record id="view_list_simple_question" model="ir.ui.view">
         <field name="name">simple.question.list</field>
         <field name="model">simple.question</field>
         <field name="arch" type="xml">
-            <list string="Questions" class="question-list-modern">
-                <field name="name" string="Question ID" class="question-id-column"/>
-                <field name="question_text" string="Question" class="question-text-column"/>
+            <list string="Questions">
+                <field name="name"/>
+                <field name="question_text"/>
             </list>
         </field>
     </record>
@@ -118,68 +86,34 @@
         <field name="name">simple.question.form</field>
         <field name="model">simple.question</field>
         <field name="arch" type="xml">
-            <form string="Question" class="question-modern-layout">
+            <form string="Question">
                 <sheet>
-                    <div class="oe_title">
-                        <label for="name" class="control-label">Question Reference</label>
-                        <h1>
-                            <field name="name" class="question-reference"/>
-                        </h1>
-                    </div>
-                    <div class="question-content">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Question Details</div>
-                            <div class="panel-body">
-                                <field name="question_text"
-                                        class="question-text-field"
-                                        placeholder="Enter your question text here..."
-                                        nolabel="1"/>
-                            </div>
-                        </div>
-                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="question_text"/>
+                    </group>
                 </sheet>
             </form>
         </field>
     </record>
-
-    <record id="action_simple_question" model="ir.actions.act_window">
+   <record id="action_simple_question" model="ir.actions.act_window">
         <field name="name">Questions</field>
         <field name="res_model">simple.question</field>
         <field name="view_mode">list,form</field>
     </record>
 
     <!-- Response views -->
-    <record id="view_form_simple_response" model="ir.ui.view">
+   <record id="view_form_simple_response" model="ir.ui.view">
         <field name="name">simple.response.form</field>
         <field name="model">simple.response</field>
         <field name="arch" type="xml">
-            <form string="Response" class="response-modern-layout">
+            <form string="Response">
                 <sheet>
-                    <div class="response-header">
-                        <div class="response-basic-info">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Response Information</div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <field name="phone_number" class="response-phone"/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <field name="survey" widget="many2one" class="response-survey"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="response-details">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Survey Responses</div>
-                            <div class="panel-body">
-                                <field name="responses" widget="one2many" class="response-list"/>
-                            </div>
-                        </div>
-                    </div>
+                    <group>
+                        <field name="phone_number"/>
+                        <field name="survey" widget="many2one"/>
+                        <field name="responses" widget="one2many"/>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -189,41 +123,29 @@
         <field name="name">simple.response.list</field>
         <field name="model">simple.response</field>
         <field name="arch" type="xml">
-            <list string="Responses" class="response-list-modern">
-                <field name="phone_number" string="Phone Number" class="response-phone-column"/>
-                <field name="survey" string="Survey" widget="many2one" class="response-survey-column"/>
+            <list string="Response">
+                <field name="phone_number"/>
+                <field name="survey" widget="many2one"/>
             </list>
         </field>
     </record>
 
     <record id="action_simple_response" model="ir.actions.act_window">
-        <field name="name">Responses</field>
+        <field name="name">Response</field>
         <field name="res_model">simple.response</field>
         <field name="view_mode">list,form</field>
     </record>
-
-    <!-- Question response views -->
-    <record id="view_form_simple_question_response" model="ir.ui.view">
+    <!-- question response views -->
+   <record id="view_form_simple_response" model="ir.ui.view">
         <field name="name">simple.question_response.form</field>
         <field name="model">simple.question_response</field>
         <field name="arch" type="xml">
-            <form string="Individual Response" class="question-response-modern-layout">
+            <form string="Individual Response">
                 <sheet>
-                    <div class="question-response-content">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Response Details</div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <field name="question" widget="many2one" class="question-field"/>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <field name="response_text" class="response-text-field"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <group>
+                        <field name="question" widget="many2one"/>
+                        <field name="response_text"/>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -233,21 +155,25 @@
         <field name="name">simple.question_response.list</field>
         <field name="model">simple.question_response</field>
         <field name="arch" type="xml">
-            <list string="Question Responses" class="question-response-list-modern">
-                <field name="phone_number" string="Phone Number" class="qr-phone-column"/>
-                <field name="question" string="Question" widget="many2one" class="qr-question-column"/>
-                <field name="response_text" string="Response" class="qr-response-column"/>
+            <list string="Response">
+                <field name="phone_number"/>
+                <field name="question" widget="many2one"/>
+                <field name="response_text"/>
             </list>
         </field>
     </record>
 
     <record id="action_simple_question_response" model="ir.actions.act_window">
-        <field name="name">Question Responses</field>
+        <field name="name">Question Response</field>
         <field name="res_model">simple.question_response</field>
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="menu_simple_survey_root" name="Simple Survey" class="survey-main-menu"/>
-    <menuitem id="menu_simple_survey" name="Surveys" parent="menu_simple_survey_root" action="action_simple_survey" class="survey-sub-menu"/>
-    <menuitem id="menu_simple_response" name="Responses" parent="menu_simple_survey_root" action="action_simple_response" class="response-sub-menu"/>
+
+
+    <menuitem id="menu_simple_survey_root" name="Simple Survey"/>
+    <menuitem id="menu_simple_survey" name="Surveys" parent="menu_simple_survey_root" action="action_simple_survey"/>
+    <menuitem id="menu_simple_response" name="Responses" parent="menu_simple_survey_root" action="action_simple_response"/>
+    <!--menuitem id="menu_simple_question" name="Questions" parent="menu_simple_survey_root" action="action_simple_question"-->
 </odoo>
+
