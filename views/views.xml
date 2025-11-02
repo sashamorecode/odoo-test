@@ -179,6 +179,6 @@
     <menuitem id="menu_simple_survey_root" name="Simple Survey"/>
     <menuitem id="menu_simple_survey" name="Surveys" parent="menu_simple_survey_root" action="action_simple_survey"/>
     <menuitem id="menu_simple_response" name="Responses" parent="menu_simple_survey_root" action="action_simple_response"/>
-    <menuitem id="menu_simple_question" name="Questions" parent="menu_simple_survey_root" action="action_simple_question"/>
+    <!--menuitem id="menu_simple_question" name="Questions" parent="menu_simple_survey_root" action="action_simple_question"-->
 </odoo>
 
