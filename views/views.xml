@@ -28,7 +28,7 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name" readonly="approval_state==approved"/>
+                            <field name="name" readonly="approval_state == 'approved'"/>
                             <field name="phone_numbers_file" filename="phone_numbers_file_name"/>
                         </group>
                         <group>
