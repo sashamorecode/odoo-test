@@ -145,11 +145,8 @@
             <form string="Individual Response">
                 <sheet>
                     <group>
-                        <group>
-                            <field name="question" widget="many2one"/>
-                            <field name="response_text"/>
-                        </group>
-                        <field name="responses" widget="one2many"/>
+                        <field name="question" widget="many2one"/>
+                        <field name="response_text"/>
                     </group>
                 </sheet>
             </form>
