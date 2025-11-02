@@ -4,6 +4,23 @@
         <field name="model">simple.survey</field>
         <field name="arch" type="xml">
             <form string="Survey">
+                <header>
+                    <button name="action_submit_for_approval"
+                            string="Submit for Approval"
+                            type="object"
+                            states="draft"
+                            class="btn-primary"/>
+                    <button name="action_approve"
+                            string="Approve"
+                            type="object"
+                            states="waiting_approval"
+                            class="btn-success"/>
+                    <button name="action_reject"
+                            string="Reject"
+                            type="object"
+                            states="waiting_approval"
+                            class="btn-danger"/>
+                </header>
                 <sheet>
                     <group>
                         <field name="name"/>
@@ -11,6 +28,7 @@
                         <field name="estimated_costs"/>
                         <field name="phone_numbers_file" filename="phone_numbers_file_name"/>
                         <field name="question_ids" widget="many2many_tags"/>
+
                     </group>
                 </sheet>
             </form>

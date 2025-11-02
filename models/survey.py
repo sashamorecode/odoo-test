@@ -16,3 +16,18 @@ class SimpleSurvey(models.Model):
         column1='survey_id',
         column2='question_id'
     )
+    approval_state = fields.Selection([
+        ('draft', 'Draft'),
+        ('waiting', 'Waiting for Approval'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    ])
+
+    def action_approve(self):
+        self.approval_state = 'waiting'
+
+    def action_approve(self):
+        # if self.env.user.has_group('manager'):
+        self.approval_state = 'approved'
+    def action_reject(self):
+        self.approval_state = 'rejected'
