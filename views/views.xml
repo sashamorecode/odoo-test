@@ -22,9 +22,11 @@
                             invisible="approval_state != 'waiting'"
                             class="btn btn-danger"/>
                     <button name="action_initiate_survey"
+                            type="object"
                             string="Initiate Survey"
                             invisible="approval_state != 'approved'"
-                            class="btn btn-success"/>
+                        class="btn btn-success"/>
+                    <field string="Active" class="btn btn-success"/>
                 </header>
                 <sheet>
                     <group>
@@ -45,7 +47,9 @@
                         </group>
                         <field name="question_ids" widget="many2many"
                             readonly="approval_state != 'draft'"/>
-
+                    </group>
+                    <group>
+                        <field name="responses" widget="one2many"/>
                     </group>
                 </sheet>
             </form>

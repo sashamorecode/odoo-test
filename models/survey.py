@@ -21,8 +21,11 @@ class SimpleSurvey(models.Model):
         ('waiting', 'Waiting for Approval'),
         ('approved', 'Approved'),
         ('rejected', 'Rejected'),
+        ('active', 'Active'),
         ('done', 'Done'),
     ], default='draft')
+    responses = fields.One2many(
+        'simple.response', 'survey', string="Responses")
 
     def action_submit_for_approval(self):
         self.approval_state = 'waiting'
@@ -34,4 +37,4 @@ class SimpleSurvey(models.Model):
         self.approval_state = 'rejected'
 
     def action_initiate_survey(self):
-        self.approval_state = 'done'
+        self.approval_state = 'active'
