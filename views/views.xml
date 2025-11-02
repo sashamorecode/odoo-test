@@ -97,7 +97,7 @@
                         </div>
                     </t>
                 </templates>
-            <groups>
+            <groups create="false" delete="false">
                 <group string="Draft" name="draft"/>
                 <group string="Waiting Approval" name="waiting"/>
                 <group string="Approved" name="approved"/>
