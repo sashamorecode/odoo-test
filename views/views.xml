@@ -9,7 +9,7 @@
                             string="Submit for Approval"
                             type="object"
                             class="btn btn-primary"
-                            invisible="state not in ('approved', 'rejected','seeking')"
+                            invisible="approval_state not in ('approved', 'rejected','seeking')"
                         />
                     <button name="action_approve"
                             string="Approve"
