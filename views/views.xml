@@ -62,10 +62,49 @@
             </list>
         </field>
     </record>
+<!-- Add this after the existing simple.survey views -->
+    <record id="view_kanban_simple_survey" model="ir.ui.view">
+        <field name="name">simple.survey.kanban</field>
+        <field name="model">simple.survey</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="approval_state">
+                <field name="name"/>
+                <field name="approval_state"/>
+                <field name="estimated_costs"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_record_body">
+                                <div class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </div>
+                                <div class="o_kanban_record_details">
+                                    <div>
+                                        <span>State: </span>
+                                        <field name="approval_state" widget="badge"/>
+                                    </div>
+                                    <div>
+                                        <span>Estimated Costs: </span>
+                                        <field name="estimated_costs"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div t-if="record.approval_state.raw_value" class="o_kanban_footer">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="approval_state" widget="badge"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
      <record id="action_simple_survey" model="ir.actions.act_window">
         <field name="name">Surveys</field>
         <field name="res_model">simple.survey</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,kanban</field>
     </record>
 
 
