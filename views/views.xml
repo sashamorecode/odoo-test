@@ -100,7 +100,6 @@
         <field name="name">Surveys</field>
         <field name="res_model">simple.survey</field>
         <field name="view_mode">list,form,kanban</field>
-            <field name="context">{'group_by': 'approval_state', 'group_expand': 1}</field>
     </record>
 
 
