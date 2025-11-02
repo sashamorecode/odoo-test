@@ -24,7 +24,6 @@ class SimpleSurvey(models.Model):
         ('done', 'Done'),
     ], default='draft')
 
-    @api.model
     def action_submit(self, *args):
         self.approval_state = 'waiting'
 
