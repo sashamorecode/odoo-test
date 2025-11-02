@@ -29,11 +29,11 @@
                     <group>
                         <group>
                             <field name="name"/>
-                            <field name="description"/>
+                            <field name="phone_numbers_file" filename="phone_numbers_file_name"/>
                         </group>
                         <group>
+                            <field name="description"/>
                             <field name="estimated_costs"/>
-                            <field name="phone_numbers_file" filename="phone_numbers_file_name"/>
                         </group>
                         <field name="question_ids" widget="many2many"/>
 
