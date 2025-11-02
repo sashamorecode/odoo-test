@@ -24,7 +24,7 @@
 
         'views/views.xml',
 
-        # 'data/demo.xml',
+        'data/demo.xml',
 
     ],
 
