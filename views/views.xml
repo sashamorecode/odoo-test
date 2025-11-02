@@ -28,14 +28,19 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name" readonly="True"/>
-                            <field name="phone_numbers_file" filename="phone_numbers_file_name"/>
+                            <field name="name"
+                                readonly="approval_state=='draft or not approval_state'"/>
+                                <field name="phone_numbers_file" filename="phone_numbers_file_name"
+                                readonly="approval_state=='draft or not approval_state'"/>
                         </group>
                         <group>
-                            <field name="description"/>
-                            <field name="estimated_costs"/>
+                            <field name="description"
+                                readonly="approval_state=='draft or not approval_state'"/>
+                            <field name="estimated_costs"
+                                readonly="approval_state=='draft or not approval_state'"/>
                         </group>
-                        <field name="question_ids" widget="many2many"/>
+                        <field name="question_ids" widget="many2many"
+                                readonly="approval_state=='draft or not approval_state'"/>
 
                     </group>
                 </sheet>
