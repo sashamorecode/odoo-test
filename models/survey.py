@@ -23,12 +23,12 @@ class SimpleSurvey(models.Model):
         ('rejected', 'Rejected'),
     ])
 
-    def action_submit_for_approval(self):
+    def action_submit_for_approval(self, *args):
         self.approval_state = 'waiting'
 
-    def action_approve(self):
+    def action_approve(self, *args):
         # if self.env.user.has_group('manager'):
         self.approval_state = 'approved'
 
-    def action_reject(self):
+    def action_reject(self, *args):
         self.approval_state = 'rejected'
