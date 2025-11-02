@@ -9,17 +9,14 @@
                             string="Submit for Approval"
                             type="object"
                             class="btn btn-primary"
-                            invisible="approval_state not in ('approved', 'rejected','seeking')"
                         />
                     <button name="action_approve"
                             string="Approve"
                             type="object"
-                            invisible="approval_state != 'waiting'"
                             class="btn btn-success"/>
                     <button name="action_reject"
                             string="Reject"
                             type="object"
-                            invisible="approval_state != 'waiting'"
                             class="btn btn-danger"/>
                     <button name="approved"
                             string="Approved"
