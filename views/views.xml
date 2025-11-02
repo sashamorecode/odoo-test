@@ -7,13 +7,16 @@
                 <header>
                     <button name="action_submit_for_approval"
                             string="Submit for Approval"
+                            type="object"
                             class="btn-primary"/>
                     <button name="action_approve"
                             string="Approve"
+                            type="object"
                             invisible="approval_state != 'waiting'"
                             class="btn-success"/>
                     <button name="action_reject"
                             string="Reject"
+                            type="object"
                             invisible="approval_state != 'waiting'"
                             class="btn-danger"/>
                     <button name="approved"
