@@ -26,8 +26,7 @@ class SimpleSurvey(models.Model):
 
     @api.model
     def action_submit(self, *args):
-        for survey in self:
-            survey.approval_state = 'waiting'
+        self.approval_state = 'waiting'
 
     def action_approve(self, *args):
         self.approval_state = 'approved'
