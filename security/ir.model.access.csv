@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_simple_survey_user,Simple Survey User Access,model_simple_survey,base.group_user,1,1,1,1
 access_simple_question_user,Simple Question User Access,model_simple_question,base.group_user,1,1,1,1
+access_simple_response_user, Simple Response User Access,model_simple_response, base.group_user,1,1,1,1
+access_simple_question_response_user, Simple Question Response User Access,model_simple_question_response, base.group_user,1,1,1,1

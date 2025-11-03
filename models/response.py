@@ -18,7 +18,7 @@ class SimpleResponse(models.Model):
     _name = 'simple.response'
     _description = 'Survey Response'
 
-    phone_number = fields.Char(string='Phone Numver', required=True)
+    phone_number = fields.Char(string='Phone Number', required=True)
     responses = fields.One2many(
         'simple.question_response', 'survey', string='Survey Response')
     survey = fields.Many2one('simple.survey', string='Survey')
